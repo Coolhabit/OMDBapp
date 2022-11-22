@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="imdb">IMDB</string>
+    <string name="comments_header">COMMENTS</string>
+    <string name="comments_btn">Leave comment</string>
+    <string name="comments_placeholder">Write your comment</string>
+</resources>

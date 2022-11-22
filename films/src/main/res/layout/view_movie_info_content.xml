@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="@dimen/size_12"
+    app:cardElevation="@dimen/size_1">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/film_poster"
+            android:layout_width="@dimen/size_150"
+            android:layout_height="@dimen/size_0"
+            android:layout_marginVertical="@dimen/size_12"
+            android:layout_marginStart="@dimen/size_20"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="1:1.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/film_name"
+            style="@style/Blue16BoldTextStyle"
+            android:layout_width="@dimen/size_0"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/size_12"
+            android:layout_marginTop="@dimen/size_12"
+            android:layout_marginEnd="@dimen/size_10"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/film_poster"
+            app:layout_constraintTop_toTopOf="@id/film_poster"
+            tools:text="Some Film" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/film_year"
+            style="@style/Grey14TextStyle"
+            android:layout_width="@dimen/size_0"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size_6"
+            android:layout_marginEnd="@dimen/size_10"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/film_name"
+            app:layout_constraintTop_toBottomOf="@id/film_name"
+            tools:text="2010" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/film_type"
+            style="@style/Grey12TextStyle"
+            android:layout_width="@dimen/size_0"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size_26"
+            app:layout_constraintStart_toStartOf="@id/film_name"
+            app:layout_constraintTop_toBottomOf="@id/film_year"
+            tools:text="movie" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/comment_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/size_12"
+            android:background="@drawable/rounded_corners_bg"
+            android:backgroundTint="@color/text_btn_bg"
+            android:clickable="true"
+            android:drawableStart="@drawable/ic_comment_without_bg"
+            android:foreground="@drawable/bg_rectangle_ripple"
+            android:gravity="center"
+            android:paddingEnd="@dimen/size_10"
+            android:text="@string/imdb"
+            android:textColor="@color/app_blue"
+            app:layout_constraintBottom_toBottomOf="@id/like_btn"
+            app:layout_constraintEnd_toStartOf="@id/like_btn"
+            app:layout_constraintTop_toTopOf="@id/like_btn" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/like_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/size_20"
+            android:clickable="true"
+            android:foreground="@drawable/bg_ripple_circle"
+            app:layout_constraintBottom_toBottomOf="@id/film_poster"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:src="@drawable/ic_like" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

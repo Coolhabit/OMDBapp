@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/films_graph"
+    app:startDestination="@id/fragment_films_list">
+
+    <fragment
+        android:id="@+id/fragment_films_list"
+        android:name="com.coolhabit.filmsearchapp.films.presentation.FilmsListFragment"
+        tools:layout="@layout/fragment_films_list">
+        <action
+            android:id="@+id/open_film_details"
+            app:destination="@id/fragment_film_details">
+            <argument
+                android:name="movieId"
+                app:argType="string" />
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_film_details"
+        android:name="com.coolhabit.filmsearchapp.films.presentation.details.FilmDetailsFragment"
+        tools:layout="@layout/fragment_film_details">
+        <argument
+            android:name="movieId"
+            app:argType="string" />
+    </fragment>
+</navigation>

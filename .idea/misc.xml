@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Android/Projects/FilmSearchApp/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
+        <entry key="..\:/Android/Projects/FilmSearchApp/baseUI/src/main/res/drawable/bg_12_rounded.xml" value="0.156" />
+        <entry key="..\:/Android/Projects/FilmSearchApp/baseUI/src/main/res/drawable/bg_rectangle_ripple.xml" value="0.156" />
+        <entry key="..\:/Android/Projects/FilmSearchApp/baseUI/src/main/res/drawable/bg_ripple_circle.xml" value="0.2365" />
+        <entry key="..\:/Android/Projects/FilmSearchApp/baseUI/src/main/res/drawable/rounded_corners_bg.xml" value="0.156" />
+        <entry key="..\:/Android/Projects/FilmSearchApp/films/src/main/res/drawable/ic_arrow_1.xml" value="0.156" />
+        <entry key="..\:/Android/Projects/FilmSearchApp/films/src/main/res/drawable/ic_comment.xml" value="0.156" />
+        <entry key="..\:/Android/Projects/FilmSearchApp/films/src/main/res/drawable/ic_comment_without_bg.xml" value="0.156" />
+        <entry key="..\:/Android/Projects/FilmSearchApp/films/src/main/res/drawable/ic_like.xml" value="0.156" />
+        <entry key="..\:/Android/Projects/FilmSearchApp/films/src/main/res/drawable/ic_search.xml" value="0.105" />
+        <entry key="..\:/Android/Projects/FilmSearchApp/films/src/main/res/layout/fragment_film_details.xml" value="0.1" />
+        <entry key="..\:/Android/Projects/FilmSearchApp/films/src/main/res/layout/fragment_films_list.xml" value="0.1" />
+        <entry key="..\:/Android/Projects/FilmSearchApp/films/src/main/res/layout/rv_film_list_item.xml" value="0.264" />
+        <entry key="..\:/Android/Projects/FilmSearchApp/films/src/main/res/layout/view_comment_field.xml" value="0.4" />
+        <entry key="..\:/Android/Projects/FilmSearchApp/films/src/main/res/layout/view_movie_info_content.xml" value="0.4" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

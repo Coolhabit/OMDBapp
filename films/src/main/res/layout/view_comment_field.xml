@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    app:cardCornerRadius="@dimen/size_12"
+    app:cardElevation="@dimen/size_1">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/base_form"
+            style="@style/InputTextBox"
+            android:paddingHorizontal="@dimen/size_20"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:boxStrokeWidth="@dimen/size_0"
+            app:boxStrokeWidthFocused="@dimen/size_0"
+            app:expandedHintEnabled="false"
+            app:hintAnimationEnabled="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:placeholderText="@string/comments_placeholder">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/base_text"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size_128"
+                android:gravity="top|left"
+                android:inputType="textMultiLine"
+                android:paddingStart="@dimen/size_12"
+                android:paddingTop="@dimen/size_12"
+                android:paddingBottom="@dimen/size_12" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/comment_btn"
+            style="@style/White18BoldTextStyle"
+            android:layout_width="@dimen/size_0"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/size_20"
+            android:layout_marginTop="@dimen/size_20"
+            android:layout_marginBottom="@dimen/size_20"
+            android:background="@drawable/rounded_corners_bg"
+            android:backgroundTint="@color/app_blue"
+            android:clickable="true"
+            android:foreground="@drawable/bg_rectangle_ripple"
+            android:gravity="center"
+            android:paddingVertical="@dimen/size_12"
+            android:text="@string/comments_btn"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/base_form" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

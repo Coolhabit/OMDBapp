@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="White19TextStyle">
+        <item name="android:textSize">@dimen/text_19</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="White18TextStyle">
+        <item name="android:textSize">@dimen/text_18</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="White18BoldTextStyle">
+        <item name="android:textSize">@dimen/text_18</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="White16TextStyle">
+        <item name="android:textSize">@dimen/text_16</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="White15TextStyle">
+        <item name="android:textSize">@dimen/text_15</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="Black16TextStyle">
+        <item name="android:textSize">@dimen/text_16</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="Blue16BoldTextStyle">
+        <item name="android:textSize">@dimen/text_16</item>
+        <item name="android:textColor">@color/app_blue</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Grey14TextStyle">
+        <item name="android:textSize">@dimen/text_14</item>
+        <item name="android:textColor">@color/app_grey</item>
+    </style>
+
+    <style name="Grey12TextStyle">
+        <item name="android:textSize">@dimen/text_12</item>
+        <item name="android:textColor">@color/app_grey</item>
+    </style>
+
+    <style name="Grey18BoldTextStyle">
+        <item name="android:textSize">@dimen/text_18</item>
+        <item name="android:textColor">@color/app_grey</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="ToolbarTitleTextStyle">
+        <item name="android:textSize">@dimen/text_16</item>
+        <item name="android:textColor">@color/app_blue</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+</resources>
