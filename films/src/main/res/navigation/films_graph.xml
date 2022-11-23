@@ -16,6 +16,10 @@
                 android:name="movieId"
                 app:argType="string" />
         </action>
+
+        <action
+            android:id="@+id/open_search_bottom"
+            app:destination="@id/fragment_search_bottom" />
     </fragment>
 
     <fragment
@@ -26,4 +30,10 @@
             android:name="movieId"
             app:argType="string" />
     </fragment>
+
+    <dialog
+        android:id="@+id/fragment_search_bottom"
+        android:name="com.coolhabit.filmsearchapp.films.presentation.bottomSearch.SearchBottomSheetFragment"
+        android:label="search_bottom"
+        tools:layout="@layout/fragment_search_bottom_sheet" />
 </navigation>

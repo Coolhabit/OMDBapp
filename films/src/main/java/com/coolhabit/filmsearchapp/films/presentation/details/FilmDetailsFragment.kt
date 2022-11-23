@@ -59,6 +59,14 @@ class FilmDetailsFragment : BaseFragment(R.layout.fragment_film_details) {
                         )
                         viewModel.changeFavStatus(movie)
                     }
+                    commentBtn.setOnClickListener {
+                        viewModel.openImdbLink(
+                            requireContext().resources.getString(
+                                R.string.imdb_link_base,
+                                movie.imdbId
+                            )
+                        )
+                    }
                 }
             }
             binding.progressBar.isVisible = state.isLoading

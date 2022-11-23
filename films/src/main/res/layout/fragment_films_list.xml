@@ -8,10 +8,10 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
+        android:elevation="@dimen/size_1"
         app:layout_constraintTop_toTopOf="parent"
         app:navigationIcon="@drawable/ic_search"
-        app:title="Movies"
-        android:elevation="@dimen/size_1"
+        app:title="@string/movies_title"
         app:titleCentered="true"
         app:titleTextAppearance="@style/ToolbarTitleTextStyle"
         app:titleTextColor="@color/app_blue" />
@@ -20,9 +20,9 @@
         android:id="@+id/rv_films"
         android:layout_width="match_parent"
         android:layout_height="@dimen/size_0"
+        android:background="@color/app_background"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar"
-        android:background="@color/app_background"/>
+        app:layout_constraintTop_toBottomOf="@id/toolbar" />
 
     <ProgressBar
         android:id="@+id/progress_bar"
@@ -33,5 +33,4 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

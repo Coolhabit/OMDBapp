@@ -8,7 +8,6 @@
         <item name="boxCornerRadiusBottomStart">@dimen/size_12</item>
         <item name="boxCornerRadiusTopEnd">@dimen/size_12</item>
         <item name="boxCornerRadiusTopStart">@dimen/size_12</item>
-        <item name="boxBackgroundColor">@color/app_background</item>
-        <item name="hintTextColor">@color/app_grey</item>
+        <item name="hintTextColor">@color/hint_color_selector</item>
     </style>
 </resources>

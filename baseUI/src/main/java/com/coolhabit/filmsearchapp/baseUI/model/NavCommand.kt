@@ -8,5 +8,7 @@ sealed class NavCommand {
 
     class Deeplink(val deeplinkRequest: NavDeepLinkRequest, val backTo: Int = -1) : NavCommand()
 
+    class Intent(val intent: android.content.Intent) : NavCommand()
+
     class GoBack(val backTo: Int = -1) : NavCommand()
 }

@@ -9,6 +9,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.setFragmentResultListener
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.coolhabit.filmsearchapp.baseUI.adapter.ItemDecoration
+import com.coolhabit.filmsearchapp.baseUI.extensions.parseError
 import com.coolhabit.filmsearchapp.baseUI.presentation.BaseFragment
 import com.coolhabit.filmsearchapp.baseUI.presentation.BaseViewModel
 import com.coolhabit.filmsearchapp.films.R
@@ -19,8 +20,11 @@ import javax.inject.Inject
 class FilmsListFragment : BaseFragment(R.layout.fragment_films_list) {
 
     companion object {
+        const val INITIAL_SEARCH = "Sherlock"
         const val FAV_REQUEST_KEY = "fav_request_key"
-        const val FAV_DATA_KEY = "fav_data_key"
+        const val SEARCH_REQUEST_KEY = "search_request_key"
+        const val SEARCH_NAME_DATA_KEY = "search_name_data_key"
+        const val SEARCH_PAGES_DATA_KEY = "search_pages_data_key"
     }
 
     private lateinit var binding: FragmentFilmsListBinding
@@ -31,7 +35,7 @@ class FilmsListFragment : BaseFragment(R.layout.fragment_films_list) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel.initContent("Sherlock")
+        viewModel.initContent(INITIAL_SEARCH, null)
     }
 
     override fun onCreateView(
@@ -44,9 +48,16 @@ class FilmsListFragment : BaseFragment(R.layout.fragment_films_list) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.progressBar.isVisible = false
         setFragmentResultListener(FAV_REQUEST_KEY) { _, _ ->
-            viewModel.initContent("Sherlock")
+            viewModel.initContent(INITIAL_SEARCH, null)
         }
+        setFragmentResultListener(SEARCH_REQUEST_KEY) { _, bundle ->
+            val nameContent = bundle.getString(SEARCH_NAME_DATA_KEY)
+            val pagesContent = bundle.getInt(SEARCH_PAGES_DATA_KEY)
+            viewModel.initContent(nameContent, pagesContent)
+        }
+
         with(binding) {
             rvFilms.apply {
                 adapter = movieAdapter
@@ -65,7 +76,7 @@ class FilmsListFragment : BaseFragment(R.layout.fragment_films_list) {
             }
 
             toolbar.setNavigationOnClickListener {
-                Toast.makeText(requireContext(), "Search", Toast.LENGTH_SHORT).show()
+                viewModel.openSearchBottom()
             }
 
             movieAdapter.onCardClick = { id ->
@@ -75,7 +86,11 @@ class FilmsListFragment : BaseFragment(R.layout.fragment_films_list) {
                 viewModel.changeFavStatus(it)
             }
             movieAdapter.onCommentClick = {
-                Toast.makeText(requireContext(), "to comments", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    requireContext(),
+                    requireContext().resources.getString(R.string.go_to_comments),
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         }
     }
@@ -86,8 +101,11 @@ class FilmsListFragment : BaseFragment(R.layout.fragment_films_list) {
                 movieAdapter.submitList(list)
             }
             state.isError { error ->
-                Toast.makeText(requireContext(), error, Toast.LENGTH_SHORT).show()
-                println(error)
+                Toast.makeText(
+                    requireContext(),
+                    error.parseError(requireContext()),
+                    Toast.LENGTH_SHORT
+                ).show()
             }
             binding.progressBar.isVisible = state.isLoading
         }

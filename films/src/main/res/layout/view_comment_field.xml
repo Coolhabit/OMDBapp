@@ -15,9 +15,9 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/base_form"
             style="@style/InputTextBox"
-            android:paddingHorizontal="@dimen/size_20"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/size_20"
             app:boxStrokeWidth="@dimen/size_0"
             app:boxStrokeWidthFocused="@dimen/size_0"
             app:expandedHintEnabled="false"

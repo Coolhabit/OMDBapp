@@ -3,6 +3,7 @@ package com.coolhabit.filmsearchapp.ioc.modules
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.coolhabit.filmsearchapp.films.presentation.FilmsListViewModel
+import com.coolhabit.filmsearchapp.films.presentation.bottomSearch.SearchBottomSheetViewModel
 import com.coolhabit.filmsearchapp.films.presentation.details.FilmDetailsViewModel
 import com.coolhabit.filmsearchapp.ioc.utils.ViewModelFactory
 import com.coolhabit.filmsearchapp.ioc.utils.ViewModelKey
@@ -31,4 +32,9 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(FilmDetailsViewModel::class)
     abstract fun filmDetailsViewModel(viewModel: FilmDetailsViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(SearchBottomSheetViewModel::class)
+    abstract fun searchBottomViewModel(viewModel: SearchBottomSheetViewModel): ViewModel
 }

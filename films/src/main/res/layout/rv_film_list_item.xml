@@ -64,8 +64,8 @@
             android:id="@+id/comment_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:clickable="true"
             android:layout_marginEnd="@dimen/size_12"
+            android:clickable="true"
             android:foreground="@drawable/bg_ripple_circle"
             android:src="@drawable/ic_comment"
             app:layout_constraintBottom_toBottomOf="@id/like_btn"
@@ -83,6 +83,5 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             tools:src="@drawable/ic_like" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>

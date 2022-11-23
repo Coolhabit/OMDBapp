@@ -1,6 +1,5 @@
 package com.coolhabit.filmsearchapp.films.presentation.adapter
 
-import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.coolhabit.filmsearchapp.baseUI.extensions.booleanCheck
 import com.coolhabit.filmsearchapp.baseUI.extensions.load

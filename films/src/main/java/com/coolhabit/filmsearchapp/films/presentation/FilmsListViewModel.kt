@@ -19,17 +19,13 @@ class FilmsListViewModel @Inject constructor(
         get() = _loadMovies
 
     private var savedQuery: String? = null
+    private var savedPageCount: Int? = null
 
-    fun initContent(query: String?) {
+    fun initContent(query: String?, pages: Int?) {
         _loadMovies.fetch {
             savedQuery = query
-            useCase.loadMoviesList(query)
-        }
-    }
-
-    fun performSearch(query: String?) {
-        _loadMovies.fetch {
-            useCase.loadMoviesList(query)
+            savedPageCount = pages
+            useCase.loadMoviesList(query, pages)
         }
     }
 
@@ -41,11 +37,15 @@ class FilmsListViewModel @Inject constructor(
         viewModelScope.launch {
             if (movie.isFavorite) {
                 useCase.removeMovieFromFav(movie)
-                initContent(savedQuery)
+                initContent(savedQuery, savedPageCount)
             } else {
                 useCase.addMovieToFav(movie)
-                initContent(savedQuery)
+                initContent(savedQuery, savedPageCount)
             }
         }
+    }
+
+    fun openSearchBottom() {
+        navigateTo(router.openSearchBottom())
     }
 }

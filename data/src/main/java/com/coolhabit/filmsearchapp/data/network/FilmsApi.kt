@@ -9,11 +9,12 @@ interface FilmsApi {
 
     @GET("/")
     suspend fun getMovies(
-        @Query("s") query: String?
+        @Query("s") query: String?,
+        @Query("page") page: Int?,
     ): NetworkResponse
 
     @GET("/")
     suspend fun getMovieDetails(
-        @Query("i") movieId: String?
+        @Query("i") movieId: String?,
     ): NetworkMovieDetails
 }

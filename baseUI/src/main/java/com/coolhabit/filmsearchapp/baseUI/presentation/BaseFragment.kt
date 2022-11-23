@@ -58,6 +58,13 @@ abstract class BaseFragment(resource: Int) : Fragment(resource) {
                     }
                     findNavController().navigate(action.deeplinkRequest)
                 }
+                is NavCommand.Intent -> {
+                    try {
+                        requireContext().startActivity(action.intent)
+                    } catch (ext: Throwable) {
+                        // nothing
+                    }
+                }
                 is NavCommand.GoBack -> {
                     action.backTo.takeIf { it > 0 }?.let {
                         val result = !findNavController().popBackStack(it, false)

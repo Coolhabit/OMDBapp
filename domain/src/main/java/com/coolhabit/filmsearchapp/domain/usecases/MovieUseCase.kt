@@ -9,9 +9,9 @@ class MovieUseCase constructor(
     private val database: IDatabaseStorage,
 ) {
 
-    suspend fun loadMoviesList(query: String?): List<Movie>? {
+    suspend fun loadMoviesList(query: String?, pages: Int?): List<Movie>? {
         val favList = database.getFavoriteMovies()
-        val currentList = api.searchMoviesByName(query)
+        val currentList = api.searchMovies(query, pages)
         currentList.map {
             it.isFavorite = favList.any { fav -> fav.imdbId == it.imdbId }
         }

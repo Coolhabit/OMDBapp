@@ -4,4 +4,13 @@
     <string name="comments_header">COMMENTS</string>
     <string name="comments_btn">Leave comment</string>
     <string name="comments_placeholder">Write your comment</string>
+    <string name="imdb_link_base">https://www.imdb.com/title/%1$s</string>
+    <string name="name_placeholder">Search name</string>
+    <string name="page_placeholder">Pages to show</string>
+    <string name="search">Search</string>
+    <string name="enter_something_search">Enter something!</string>
+    <string name="page_not_in_range">Page must contain number from 1 to 100!</string>
+    <string name="go_to_comments">Go to comments</string>
+    <string name="movie_info_title">Movie Info</string>
+    <string name="movies_title">Movies</string>
 </resources>

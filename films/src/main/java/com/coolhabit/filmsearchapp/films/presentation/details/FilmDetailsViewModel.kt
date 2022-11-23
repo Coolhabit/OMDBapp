@@ -5,12 +5,14 @@ import com.coolhabit.filmsearchapp.baseUI.model.StatefulData
 import com.coolhabit.filmsearchapp.baseUI.presentation.BaseViewModel
 import com.coolhabit.filmsearchapp.domain.entities.Movie
 import com.coolhabit.filmsearchapp.domain.usecases.MovieUseCase
+import com.coolhabit.filmsearchapp.films.presentation.IFilmsRouter
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class FilmDetailsViewModel @Inject constructor(
     private val useCase: MovieUseCase,
+    private val router: IFilmsRouter,
 ) : BaseViewModel() {
 
     private val _loadMovie = statefulSharedFlow<Movie>()
@@ -36,5 +38,9 @@ class FilmDetailsViewModel @Inject constructor(
                 initContent(savedId)
             }
         }
+    }
+
+    fun openImdbLink(link: String) {
+        navigateTo(router.openImdbLink(link))
     }
 }

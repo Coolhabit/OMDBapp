@@ -1,6 +1,7 @@
 package com.coolhabit.filmsearchapp.ioc.modules
 
 import com.coolhabit.filmsearchapp.films.presentation.FilmsListFragment
+import com.coolhabit.filmsearchapp.films.presentation.bottomSearch.SearchBottomSheetFragment
 import com.coolhabit.filmsearchapp.films.presentation.details.FilmDetailsFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
@@ -13,4 +14,7 @@ abstract class FragmentsModule {
 
     @ContributesAndroidInjector
     abstract fun provideFilmDetailsFragment(): FilmDetailsFragment
+
+    @ContributesAndroidInjector
+    abstract fun provideSearchBottomFragment(): SearchBottomSheetFragment
 }
