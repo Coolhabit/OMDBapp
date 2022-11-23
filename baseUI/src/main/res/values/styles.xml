@@ -3,11 +3,27 @@
     <style name="InputTextBox" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
         <item name="android:paddingTop">@dimen/size_20</item>
         <item name="errorEnabled">false</item>
+        <item name="expandedHintEnabled">false</item>
+        <item name="hintAnimationEnabled">false</item>
+        <item name="endIconMode">clear_text</item>
+        <item name="boxStrokeWidth">@dimen/size_0</item>
+        <item name="boxStrokeWidthFocused">@dimen/size_0</item>
         <item name="placeholderTextColor">@color/app_grey</item>
         <item name="boxCornerRadiusBottomEnd">@dimen/size_12</item>
         <item name="boxCornerRadiusBottomStart">@dimen/size_12</item>
         <item name="boxCornerRadiusTopEnd">@dimen/size_12</item>
         <item name="boxCornerRadiusTopStart">@dimen/size_12</item>
         <item name="hintTextColor">@color/hint_color_selector</item>
+    </style>
+
+    <style name="BlueTextViewButtonStyle">
+        <item name="android:textAppearance">@style/White18BoldTextStyle</item>
+        <item name="android:background">@drawable/rounded_corners_bg</item>
+        <item name="android:backgroundTint">@color/app_blue</item>
+        <item name="android:clickable">true</item>
+        <item name="android:foreground">@drawable/bg_rectangle_ripple</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingTop">@dimen/size_12</item>
+        <item name="android:paddingBottom">@dimen/size_12</item>
     </style>
 </resources>
