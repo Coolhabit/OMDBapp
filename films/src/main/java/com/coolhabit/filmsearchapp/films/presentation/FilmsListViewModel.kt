@@ -18,8 +18,8 @@ class FilmsListViewModel @Inject constructor(
     val loadMovies: Flow<StatefulData<List<Movie>?>>
         get() = _loadMovies
 
-    private var savedQuery: String? = null
-    private var savedPageCount: Int? = null
+    var savedQuery: String? = null
+    var savedPageCount: Int? = null
 
     fun initContent(query: String?, pages: Int?) {
         _loadMovies.fetch {

@@ -50,7 +50,7 @@ class FilmsListFragment : BaseFragment(R.layout.fragment_films_list) {
         super.onViewCreated(view, savedInstanceState)
         binding.progressBar.isVisible = false
         setFragmentResultListener(CONTENT_CHANGED_KEY) { _, _ ->
-            viewModel.initContent(INITIAL_SEARCH, null)
+            viewModel.initContent(viewModel.savedQuery, viewModel.savedPageCount)
         }
         setFragmentResultListener(SEARCH_REQUEST_KEY) { _, bundle ->
             val nameContent = bundle.getString(SEARCH_NAME_DATA_KEY)
