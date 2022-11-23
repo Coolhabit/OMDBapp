@@ -3,7 +3,6 @@ package com.coolhabit.filmsearchapp.data.db.entity
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.coolhabit.filmsearchapp.data.db.AppDatabase.Companion.DATABASE_NAME
 import com.coolhabit.filmsearchapp.data.db.dao.MovieDao
 import com.coolhabit.filmsearchapp.domain.entities.Movie
 

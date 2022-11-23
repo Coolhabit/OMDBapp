@@ -13,7 +13,5 @@ interface IDatabaseStorage {
 
     suspend fun addMovieWithComments(movieComment: MovieComment)
 
-    suspend fun updateCommentsList(movieId: String, list: List<String>)
-
     suspend fun getCommentsList(): List<MovieComment>
 }

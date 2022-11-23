@@ -29,12 +29,8 @@ class DatabaseStorageImpl(context: Context) : IDatabaseStorage {
         }
     }
 
-    override suspend fun addMovieWithComments(movie: MovieComment) {
-        database.commentsDao().insert(movie.toData())
-    }
-
-    override suspend fun updateCommentsList(movieId: String, list: List<String>) {
-        database.commentsDao().updateCommentsList(movieId, list)
+    override suspend fun addMovieWithComments(movieComment: MovieComment) {
+        database.commentsDao().insert(movieComment.toData())
     }
 
     override suspend fun getCommentsList(): List<MovieComment> {

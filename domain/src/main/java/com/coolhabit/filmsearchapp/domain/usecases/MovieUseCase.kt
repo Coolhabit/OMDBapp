@@ -11,7 +11,6 @@ class MovieUseCase constructor(
     private val api: IMoviesApiService,
     private val database: IDatabaseStorage,
 ) {
-
     suspend fun loadMoviesList(query: String?, pages: Int?): List<Movie>? {
         return coroutineScope {
             val favAsync = async {

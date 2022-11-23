@@ -4,7 +4,6 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.coolhabit.filmsearchapp.data.db.dao.MoviesWithCommentsDao
-import com.coolhabit.filmsearchapp.domain.entities.Movie
 import com.coolhabit.filmsearchapp.domain.entities.MovieComment
 
 @Entity(tableName = MoviesWithCommentsDao.TABLE_NAME)
