@@ -21,7 +21,7 @@ class FilmsListFragment : BaseFragment(R.layout.fragment_films_list) {
 
     companion object {
         const val INITIAL_SEARCH = "Sherlock"
-        const val FAV_REQUEST_KEY = "fav_request_key"
+        const val CONTENT_CHANGED_KEY = "content_changed_key"
         const val SEARCH_REQUEST_KEY = "search_request_key"
         const val SEARCH_NAME_DATA_KEY = "search_name_data_key"
         const val SEARCH_PAGES_DATA_KEY = "search_pages_data_key"
@@ -49,7 +49,7 @@ class FilmsListFragment : BaseFragment(R.layout.fragment_films_list) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.progressBar.isVisible = false
-        setFragmentResultListener(FAV_REQUEST_KEY) { _, _ ->
+        setFragmentResultListener(CONTENT_CHANGED_KEY) { _, _ ->
             viewModel.initContent(INITIAL_SEARCH, null)
         }
         setFragmentResultListener(SEARCH_REQUEST_KEY) { _, bundle ->
@@ -106,6 +106,7 @@ class FilmsListFragment : BaseFragment(R.layout.fragment_films_list) {
                     error.parseError(requireContext()),
                     Toast.LENGTH_SHORT
                 ).show()
+                println(error)
             }
             binding.progressBar.isVisible = state.isLoading
         }

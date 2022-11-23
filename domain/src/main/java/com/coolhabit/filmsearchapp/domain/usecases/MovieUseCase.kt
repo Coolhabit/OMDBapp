@@ -3,6 +3,9 @@ package com.coolhabit.filmsearchapp.domain.usecases
 import com.coolhabit.filmsearchapp.domain.api.IDatabaseStorage
 import com.coolhabit.filmsearchapp.domain.api.IMoviesApiService
 import com.coolhabit.filmsearchapp.domain.entities.Movie
+import com.coolhabit.filmsearchapp.domain.entities.MovieComment
+import kotlinx.coroutines.async
+import kotlinx.coroutines.coroutineScope
 
 class MovieUseCase constructor(
     private val api: IMoviesApiService,
@@ -10,19 +13,44 @@ class MovieUseCase constructor(
 ) {
 
     suspend fun loadMoviesList(query: String?, pages: Int?): List<Movie>? {
-        val favList = database.getFavoriteMovies()
-        val currentList = api.searchMovies(query, pages)
-        currentList.map {
-            it.isFavorite = favList.any { fav -> fav.imdbId == it.imdbId }
+        return coroutineScope {
+            val favAsync = async {
+                database.getFavoriteMovies()
+            }
+            val commentsAsync = async {
+                database.getCommentsList()
+            }
+            val moviesAsync = async {
+                api.searchMovies(query, pages)
+            }
+
+            val list = moviesAsync.await()
+            list.map { movie ->
+                movie.isFavorite = favAsync.await().any { fav -> fav.imdbId == movie.imdbId }
+                movie.commentsList =
+                    commentsAsync.await().find { it.movieId == movie.imdbId }?.commentsList ?: emptyList()
+            }
+            list
         }
-        return currentList
     }
 
     suspend fun getMovieById(id: String?): Movie {
-        val favList = database.getFavoriteMovies()
-        val currentMovie = api.getMovieById(id)
-        currentMovie.isFavorite = favList.any { it.imdbId == id}
-        return currentMovie
+        return coroutineScope {
+            val favAsync = async {
+                database.getFavoriteMovies()
+            }
+            val commentsAsync = async {
+                database.getCommentsList()
+            }
+            val movieAsync = async {
+                api.getMovieById(id)
+            }
+
+            val currentMovie = movieAsync.await()
+            currentMovie.isFavorite = favAsync.await().any { it.imdbId == id}
+            currentMovie.commentsList = commentsAsync.await().find { it.movieId == id }?.commentsList ?: emptyList()
+            currentMovie
+        }
     }
 
     suspend fun addMovieToFav(movie: Movie) {
@@ -31,5 +59,9 @@ class MovieUseCase constructor(
 
     suspend fun removeMovieFromFav(movie: Movie) {
         database.removeMovieFromFavorite(movie)
+    }
+
+    suspend fun addComment(movieId: String, newList: List<String>) {
+        database.addMovieWithComments(MovieComment(movieId, newList))
     }
 }

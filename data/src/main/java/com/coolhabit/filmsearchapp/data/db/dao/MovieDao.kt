@@ -10,6 +10,9 @@ import com.coolhabit.filmsearchapp.data.db.entity.MovieDB
 
 @Dao
 interface MovieDao {
+    companion object {
+        const val TABLE_NAME = "movies"
+    }
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(movie: MovieDB)
@@ -17,6 +20,6 @@ interface MovieDao {
     @Delete
     suspend fun delete(movie: MovieDB)
 
-    @Query("SELECT * FROM $DATABASE_NAME")
+    @Query("SELECT * FROM $TABLE_NAME")
     suspend fun getFavoriteMovies(): List<MovieDB>
 }

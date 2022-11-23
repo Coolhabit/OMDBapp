@@ -44,6 +44,15 @@
             app:layout_constraintStart_toStartOf="@id/movie_info"
             app:layout_constraintTop_toBottomOf="@id/movie_info" />
 
+        <LinearLayout
+            android:id="@+id/messages"
+            android:orientation="vertical"
+            android:layout_marginTop="@dimen/size_12"
+            android:layout_marginHorizontal="@dimen/size_20"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/comments_header" />
+
         <include
             android:id="@+id/comment_field"
             layout="@layout/view_comment_field"
@@ -53,10 +62,11 @@
             android:layout_marginTop="@dimen/size_12"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/comments_header" />
+            app:layout_constraintTop_toBottomOf="@id/messages" />
 
         <ProgressBar
             android:id="@+id/progress_bar"
+            android:translationZ="@dimen/size_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:indeterminateTint="@color/app_blue"

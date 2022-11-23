@@ -10,7 +10,8 @@ fun NetworkMovie.toDomain(): Movie = Movie(
     year = this.Year,
     poster = this.Poster,
     type = this.Type,
-    isFavorite = false
+    isFavorite = false,
+    commentsList = emptyList(),
 )
 
 fun NetworkMovieDetails.toDomain(): Movie = Movie(
@@ -19,5 +20,6 @@ fun NetworkMovieDetails.toDomain(): Movie = Movie(
     year = this.Year,
     poster = this.Poster,
     type = this.Type,
-    isFavorite = false
+    isFavorite = false,
+    commentsList = emptyList(),
 )

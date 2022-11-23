@@ -43,4 +43,13 @@ class FilmDetailsViewModel @Inject constructor(
     fun openImdbLink(link: String) {
         navigateTo(router.openImdbLink(link))
     }
+
+    fun addComment(post: String, comments: List<String>, movieId: String) {
+        val newList = comments.toMutableList()
+        newList.add(post)
+        viewModelScope.launch {
+            useCase.addComment(movieId, newList)
+            initContent(savedId)
+        }
+    }
 }

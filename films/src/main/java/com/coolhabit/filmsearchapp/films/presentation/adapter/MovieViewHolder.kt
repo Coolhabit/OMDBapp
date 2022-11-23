@@ -1,5 +1,6 @@
 package com.coolhabit.filmsearchapp.films.presentation.adapter
 
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.coolhabit.filmsearchapp.baseUI.extensions.booleanCheck
 import com.coolhabit.filmsearchapp.baseUI.extensions.load
@@ -29,13 +30,19 @@ class MovieViewHolder(
             filmType.text = item.type.withFirstLetterCapitalized()
             filmYear.text = item.year
             likeBtn.booleanCheck(item.isFavorite, R.drawable.ic_liked, R.drawable.ic_like)
-
+            commentsCheck(item.commentsList, commentsCounter)
             commentBtn.setOnClickListener {
                 onCommentClick.invoke(item.imdbId)
             }
             likeBtn.setOnClickListener {
                 onFavClick.invoke(item)
             }
+        }
+    }
+
+    private fun commentsCheck(list: List<String>, textView: TextView) {
+        if (list.isNotEmpty()) {
+            textView.text = list.size.toString()
         }
     }
 }

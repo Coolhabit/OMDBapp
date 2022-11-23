@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import androidx.core.view.isVisible
 import androidx.fragment.app.setFragmentResult
 import androidx.navigation.fragment.navArgs
@@ -14,7 +15,8 @@ import com.coolhabit.filmsearchapp.baseUI.presentation.BaseFragment
 import com.coolhabit.filmsearchapp.baseUI.presentation.BaseViewModel
 import com.coolhabit.filmsearchapp.films.R
 import com.coolhabit.filmsearchapp.films.databinding.FragmentFilmDetailsBinding
-import com.coolhabit.filmsearchapp.films.presentation.FilmsListFragment.Companion.FAV_REQUEST_KEY
+import com.coolhabit.filmsearchapp.films.databinding.RvMessageBinding
+import com.coolhabit.filmsearchapp.films.presentation.FilmsListFragment.Companion.CONTENT_CHANGED_KEY
 
 class FilmDetailsFragment : BaseFragment(R.layout.fragment_film_details) {
 
@@ -46,6 +48,7 @@ class FilmDetailsFragment : BaseFragment(R.layout.fragment_film_details) {
         loadMovie.collectWithState { state ->
             state.isSuccessful { movie ->
                 with(binding.movieInfo) {
+                    addMessage(movie.commentsList, binding.messages)
                     filmName.text = movie.name
                     filmPoster.load(movie.poster)
                     filmType.text = movie.type.withFirstLetterCapitalized()
@@ -54,11 +57,12 @@ class FilmDetailsFragment : BaseFragment(R.layout.fragment_film_details) {
 
                     likeBtn.setOnClickListener {
                         setFragmentResult(
-                            FAV_REQUEST_KEY,
+                            CONTENT_CHANGED_KEY,
                             Bundle()
                         )
                         viewModel.changeFavStatus(movie)
                     }
+
                     commentBtn.setOnClickListener {
                         viewModel.openImdbLink(
                             requireContext().resources.getString(
@@ -67,9 +71,31 @@ class FilmDetailsFragment : BaseFragment(R.layout.fragment_film_details) {
                             )
                         )
                     }
+
+                    binding.commentField.commentBtn.setOnClickListener {
+                        val comment = binding.commentField.baseText.text
+                        if (comment?.isNotBlank() == true) {
+                            setFragmentResult(
+                                CONTENT_CHANGED_KEY,
+                                Bundle()
+                            )
+                            viewModel.addComment(comment.toString(), movie.commentsList, movie.imdbId)
+                            comment.clear()
+                        }
+                    }
                 }
             }
             binding.progressBar.isVisible = state.isLoading
+        }
+    }
+
+    private fun addMessage(list: List<String>, container: LinearLayout) {
+        container.removeAllViews()
+        val inflater = LayoutInflater.from(container.context)
+        for (i in list) {
+            val newMessage = RvMessageBinding.inflate(inflater, container, false)
+            newMessage.message.text = i
+            container.addView(newMessage.root)
         }
     }
 }

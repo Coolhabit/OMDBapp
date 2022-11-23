@@ -4,9 +4,10 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.coolhabit.filmsearchapp.data.db.AppDatabase.Companion.DATABASE_NAME
+import com.coolhabit.filmsearchapp.data.db.dao.MovieDao
 import com.coolhabit.filmsearchapp.domain.entities.Movie
 
-@Entity(tableName = DATABASE_NAME)
+@Entity(tableName = MovieDao.TABLE_NAME)
 data class MovieDB(
     @PrimaryKey
     @ColumnInfo(name = "id") val id: String,
@@ -31,4 +32,5 @@ fun MovieDB.toDomain() = Movie(
     year = this.year,
     type = this.type,
     isFavorite = true,
+    commentsList = emptyList(),
 )

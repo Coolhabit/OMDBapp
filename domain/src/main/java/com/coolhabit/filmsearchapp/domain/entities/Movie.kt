@@ -7,4 +7,5 @@ data class Movie(
     val year: String,
     val type: String,
     var isFavorite: Boolean,
+    var commentsList: List<String>,
 )
