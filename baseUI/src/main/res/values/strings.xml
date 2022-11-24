@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">FilmSearchApp</string>
     <string name="null_search_error">Search returned nothing, try again!</string>
+    <string name="internet_error">Check the internet connection!</string>
     <string name="other_error">Something gone wrong!</string>
     <string name="search_label">Search</string>
 </resources>

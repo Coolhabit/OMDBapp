@@ -8,6 +8,7 @@ import com.coolhabit.filmsearchapp.baseUI.model.NavCommand
 import java.util.*
 
 const val NULL_SEARCH_ERROR = "Parameter specified as non-null is null: method kotlin.jvm.internal.Intrinsics.checkNotNullParameter, parameter <this>"
+const val INTERNET_ERROR = "Unable to resolve host \"www.omdbapi.com\": No address associated with hostname"
 const val PAGE_REGEX = "([1-9]|[1-9][0-9]|100)"
 
 fun String.withFirstLetterCapitalized(): String {
@@ -27,6 +28,7 @@ fun String.openImdbLink(): NavCommand {
 fun String.parseError(context: Context): String {
     return when (this) {
         NULL_SEARCH_ERROR -> context.resources.getString(R.string.null_search_error)
+        INTERNET_ERROR -> context.resources.getString(R.string.internet_error)
         else -> context.resources.getString(R.string.other_error)
     }
 }
